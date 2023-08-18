@@ -262,7 +262,11 @@ if(ENABLE_TARGET_EXPORT)
         DESTINATION "${CMAKE_INSTALL_FULL_LIBDIR}/cmake/cJSON")
 endif()
 
+option(CJSON_WITH_DISABLED_TEST_APPS "Build cJSON with disabled test apps." OFF)
 option(ENABLE_CJSON_TEST "Enable building cJSON test" ON)
+if(CJSON_WITH_DISABLED_TEST_APPS)
+    set(ENABLE_CJSON_TEST OFF)
+endif()
 if(ENABLE_CJSON_TEST)
     enable_testing()
 
