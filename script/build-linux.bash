@@ -74,8 +74,8 @@ fi
 
 
 ## Print build information
-echo "[$SYSTEM_PLATFORM] Project information: revision:" $PROJECT_REVISION
-echo "[$SYSTEM_PLATFORM] Project information: release type:" $PROJECT_RELEASE_TYPE
+echo "[$SYSTEM_PLATFORM] Project information: revision: $PROJECT_REVISION"
+echo "[$SYSTEM_PLATFORM] Project information: release type: $PROJECT_RELEASE_TYPE"
 echo "[$SYSTEM_PLATFORM] Project information: Disable clean build: $PROJECT_SHOULD_DISABLE_CLEAN_BUILD"
 echo "[$SYSTEM_PLATFORM] Component information: cJSON with disabled test apps: $PROJECT_CJSON_WITH_DISABLED_TEST_APPS"
 
