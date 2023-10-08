@@ -44,7 +44,7 @@ $ProjectWithWorkaroundSpectre = if ($Env:MY_PROJECT_WITH_WORKAROUND_SPECTRE) {$E
 ####
 #### Project component level config
 ####
-$ProjectCjsonWithDisabledTestApps = if ($Env:MY_PROJECT_CJSON_WITH_DISABLED_TEST_APPS) {$Env:MY_PROJECT_CJSON_WITH_DISABLED_TEST_APPS} else {'OFF'}
+$ProjectCjsonWithoutTestApps = if ($Env:MY_PROJECT_CJSON_WITHOUT_TEST_APPS) {$Env:MY_PROJECT_CJSON_WITHOUT_TEST_APPS} else {'OFF'}
 
 ##
 ## My variables
@@ -54,8 +54,8 @@ $MyCmakeCommonArgumentList = @(
         "-T $ProjectToolset",
         "-DMY_REVISION=$ProjectRevision"
 )
-if ('ON'.Equals($ProjectCjsonWithDisabledTestApps)) {
-    $MyCmakeCommonArgumentList += "-DCJSON_WITH_DISABLED_TEST_APPS=$ProjectCjsonWithDisabledTestApps"
+if ('ON'.Equals($ProjectCjsonWithoutTestApps)) {
+    $MyCmakeCommonArgumentList += "-DCJSON_WITHOUT_TEST_APPS=$ProjectCjsonWithoutTestApps"
 }
 if ('ON'.Equals($ProjectWithSharedVcrt)) {
     $MyCmakeCommonArgumentList += "-DBUILD_WITH_SHARED_VCRT=$ProjectWithSharedVcrt"
@@ -125,7 +125,7 @@ Write-Information "[PowerShell] Project information: Disable clean build: $Proje
 Write-Information "[PowerShell] Project information: CMake generator: `"$MyCmakeGenerator`""
 Write-Information "[PowerShell] Project information: CMake toolset: `"$ProjectToolset`""
 Write-Information "[PowerShell] Project information: CMake platform to build: $MyCmakePlatformToBuildListString"
-Write-Information "[PowerShell] Component information: cJSON with disabled test apps: $ProjectCjsonWithDisabledTestApps"
+Write-Information "[PowerShell] Component information: cJSON without test apps: $ProjectCjsonWithoutTestApps"
 
 
 
